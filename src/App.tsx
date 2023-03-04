@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Slider from "./slider";
 
 function App() {
+  const [currentValue, setCurrentValue] = useState(0);
+  const [modeUnder, setModeUnder] = useState(true);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Slider currentValue = {currentValue} modeUnder={modeUnder} setCurrentValue={setCurrentValue}/>
+      <button className="button-wrapper">Place bet</button>
+
+      <div>
+        <div className="card">
+        <div><p>Bet amount</p>  <input/></div>
+        <div><p>Profit</p>  <input/></div>
+
+      </div>
+      <div>
+        <div className="card">
+        <div><p>Payout</p>  <input/></div>
+        <div><p>Roll under</p> <div><input/><button onClick={()=>setModeUnder(()=>!modeUnder)}>mode</button></div></div>
+        <div><p>Win chance</p>  <input/></div>
+        </div>
+        </div>
+
+      </div>
     </div>
   );
 }

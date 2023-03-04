@@ -1,3 +1,10 @@
+:root {
+  --main-color: red;
+  --main-color-hover: rgb(104, 117, 217, 0.2);
+  --track-color: rgb(68, 146, 102);
+  --mark-color: #aaaaaa;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +17,90 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.customSlider {
+  max-width: 300px;
+  margin: auto;
+}
+
+.customSlider-track-under {
+  top: 8px;
+  height: 4px;
+  background: var(--track-color);
+}
+
+.customSlider-track-under:first-child{
+  background: var(--main-color);
+}
+.customSlider-track-over {
+  top: 8px;
+  height: 4px;
+  background: var(--main-color);
+}
+
+.customSlider-track-over:first-child {
+  background: var(--track-color);
+}
+
+.customSlider-thumb-under {
+  cursor: pointer;
+  /*color for the thumb */
+  background: var(--main-color);
+  /* shape of the thumb: circle */
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  /* remove default outline when selected */
+  outline: none;
+}
+
+.customSlider-thumb-under:hover {
+  box-shadow: 0 0 0 8px var(--main-color-hover);
+}
+.customSlider-thumb-over {
+  cursor: pointer;
+  /*color for the thumb */
+  background: var(--track-color);
+  /* shape of the thumb: circle */
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  /* remove default outline when selected */
+  outline: none;
+}
+
+.customSlider-thumb-over:hover {
+  box-shadow: 0 0 0 8px var(--track-color);
+}
+
+.customSlider-mark {
+  cursor: pointer;
+  top: 6px;
+  width: 1.5px;
+  height: 8px;
+  background-color: var(--mark-color);
+}
+
+.customSlider-mark.customSlider-mark-under-before {
+  background-color: var(--main-color);
+}
+.customSlider-mark.customSlider-mark-over-before {
+  background-color: var(--track-color);
+}
+
+.customSlider-mark.customSlider-mark-active {
+  display: none;
+}
+
+.card{
+
+  margin: auto;
+  max-width: 600px;
+  display: flex;
+  justify-content:space-around;
+  
+}
+.card p{
+  text-align: left;
 }
