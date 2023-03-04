@@ -2,7 +2,7 @@ import { useState } from "react";
 import ReactSlider from "react-slider";
 import "./index.css";
 
-const Slider = ({currentValue, setCurrentValue, modeUnder}:any) => {
+const Slider = ({currentValue, setCurrentValue, modeUnder, sliderRef}:any) => {
 
   return (
     <ReactSlider
@@ -14,6 +14,7 @@ const Slider = ({currentValue, setCurrentValue, modeUnder}:any) => {
       min={0}
       max={100}
       value={currentValue}
+      ref={sliderRef}
       onChange={(value) => {
         setCurrentValue(value)}}
       renderMark={(props:any) => {
