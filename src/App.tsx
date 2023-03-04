@@ -6,10 +6,14 @@ function App() {
   const [currentValue, setCurrentValue] = useState(0);
   const [modeUnder, setModeUnder] = useState(true);
 
+  const rundomNumberGen=()=>{
+    setCurrentValue ( Math.floor(Math.random() * 100))
+  }
+
   return (
     <div className="App">
       <Slider currentValue = {currentValue} modeUnder={modeUnder} setCurrentValue={setCurrentValue}/>
-      <button className="button-wrapper">Place bet</button>
+      <button className="button-wrapper" onClick={rundomNumberGen}>Place bet</button>
 
       <div>
         <div className="card">
