@@ -13,18 +13,18 @@ function App() {
 
   const rundomNumberGen=()=>{
     setCurrentValue (()=> Math.floor(Math.random() * 100))
+    if (rollNumber>currentValue&&modeUnder||rollNumber<currentValue&&!modeUnder){
+      setProfit(rollNumber*+betAmount/100)
+    }
+    if (rollNumber<currentValue&&modeUnder||rollNumber>currentValue&&!modeUnder){
+      setProfit(0)
+      alert(`You lose. Generated Number is ${currentValue}`)//alert
+    }
   }
 
-  useEffect(()=>{ 
-    if (rollNumber>currentValue&&modeUnder){
-    setProfit(rollNumber*+betAmount/100)
-  }
-  if (rollNumber<currentValue&&modeUnder){
-    setPayout(rollNumber*+betAmount/100)
-  }
-
-
-},[modeUnder, rollNumber, betAmount, currentValue])
+//   useEffect(()=>{ 
+  
+// },[modeUnder, rollNumber, betAmount, currentValue])
 
   return (
     <div className="App">
@@ -33,13 +33,13 @@ function App() {
       <div>
         <div className="card">
         <div><p>Bet amount</p>  <input type='number' value={betAmount} onChange={(e:any)=>setBetAmount(e.target.value)}/></div>
-        <div><p>Profit</p>  <input type='number' value={profit}/></div>
+        <div><p>Profit</p>  <input type='number' value={profit} readOnly/></div>
       </div>
       <div>
         <div className="card">
-        <div><p>Payout</p>  <input type='number' value={payout}/></div>
+        <div><p>Payout</p>  <input type='number' value={1+rollNumber/100} readOnly/></div>
         <div><p>Roll {modeUnder?'under':'over'}</p> <div><input type='number' value={rollNumber} onChange={(e:any)=>setRollNumber(e.target.value)}/><button onClick={()=>setModeUnder(()=>!modeUnder)}>mode</button></div></div>
-        <div><p>Win chance</p>  <input type='number' /></div>
+      <div><p>Win chance</p>  <input type='string' value={modeUnder?rollNumber+'%':100-rollNumber+'%'} readOnly/></div>
         </div>
         </div>
       </div>
