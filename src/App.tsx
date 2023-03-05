@@ -12,13 +12,15 @@ function App() {
   const sliderRef:any=useRef(0)
 
   const rundomNumberGen=()=>{
-    setCurrentValue (()=> Math.floor(Math.random() * 100))
-    if (rollNumber>currentValue&&modeUnder||rollNumber<currentValue&&!modeUnder){
+    let b=Math.floor(Math.random() * 100)
+    console.log(b)
+    setCurrentValue (b)
+   if (rollNumber>b&&modeUnder||rollNumber<b&&!modeUnder){
       setProfit(rollNumber*+betAmount/100)
     }
-    if (rollNumber<currentValue&&modeUnder||rollNumber>currentValue&&!modeUnder){
+    if (rollNumber<b&&modeUnder||rollNumber>b&&!modeUnder){
       setProfit(0)
-      alert(`You lose. Generated Number is ${currentValue}`)//alert
+      alert(`You lose. Generated Number is ${b}`)
     }
   }
 
